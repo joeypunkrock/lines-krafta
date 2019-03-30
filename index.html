@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lines - Krafta</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <style>
+            .out-fade {
+                opacity: 0;
+            }
+            .in-fade {
+                opacity: 1!important;
+            }
+            .in-fade .out-fade {
+                opacity: 1!important;
+            }
+        </style>
+
+        <link rel="stylesheet" href="./dist/index.css">
+    
+        <meta name="theme-color" content="#000000">
+    </head>
+    <body>
+        <div id="app">
+            <div class="navbar">
+                <div class="navbar-left">
+
+                </div>
+                <div class="navbar-middle">
+                    <a href="/" class="heading-link"><h1 class="navbar-heading out-fade">Loading...</h1></a>
+                </div>
+                <div class="navbar-right out-fade">
+                    <a href="" onclick="return false;" class="navbar-link show-popup"  aria-haspopup="true">About</a>
+                </div>
+            </div>
+            <div class="scene-loader out-fade"></div>
+            <div class="scene out-fade"></div>
+            <div class="flash"></div>
+            <button id="openMixer" class="out-fade simple-button open-mixer--hidden">Open Mixer <span class="s-md">(m)</span></button>
+            <div id="mixer" class="out-fade">
+                <button id="closeMixer" class="simple-button"><span class="s-md">Close Mixer (m)</span> <span class="s-sm">X</span></button>
+            </div>
+            <div class="mask" role="dialog"></div>
+            <div class="modal out-fade" role="alert">
+                <div class="modal-content">
+                    <h2 class="modal-heading">About this Project</h2>
+                </div>
+                <button class="close" role="button">X</button>
+            </div>
+        </div>
+        <script src="./dist/index.js"></script>
+    </body>
+</html>
