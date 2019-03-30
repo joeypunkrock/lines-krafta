@@ -408,7 +408,7 @@ input[type=range][orient=vertical] {
   height: 187px;
   z-index: 1; }
   .circle.pulse {
-    background: url("/src/scenes/lines/image_layers/heartbeat-single.png") no-repeat;
+    background: url("https://joeypunkrock.github.io/lines-krafta/src/scenes/lines/image_layers/heartbeat-single.png") no-repeat;
     background-size: contain;
     background-position: center bottom; }
 
@@ -492,7 +492,7 @@ input[type=range][orient=vertical] {
   -webkit-transition: opacity linear 150ms;
   -moz-transition: opacity linear 150ms;
   -o-transition: opacity linear 150ms;
-  background-image: url("/src/scenes/lines/image_layers/flash-image.png");
+  background-image: url("https://joeypunkrock.github.io/lines-krafta/src/scenes/lines/image_layers/flash-image.png");
   opacity: 0; }
   .flash-image.is-flashed {
     opacity: 1; }
