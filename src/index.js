@@ -216,7 +216,7 @@ const app = new App();
 
 //path references
 const File = function(scene, fileName) {
-    const sceneSrc = './src/scenes/'+scene+'/';
+    const sceneSrc = './lines-krafta/src/scenes/'+scene+'/';
     this.imageLayersSrc = sceneSrc+'image_layers/'+fileName;
     this.soundLayersSrc = sceneSrc+'sound_layers/'+fileName;
 }
