@@ -2,6 +2,8 @@ import './index.scss';
 import {Howl, Howler} from 'howler';
 import TweenMax from 'gsap';
 import { strict } from 'assert';
+import noUiSlider from 'nouislider';
+import 'nouislider/distribute/nouislider.css';
 
 'use strict';
 
@@ -164,6 +166,7 @@ const App = function() {
         }
         app.openMixerBtn.onclick = function() { openMixer() }
         app.closeMixerBtn.onclick = function() { closeMixer() }
+        app.scene.onclick = function() { closeMixer() }
         const toggleMixer = function(e) {
             if(e.which==77) {
                 if(app.mixer.classList.contains('mixer--open')) {
@@ -264,6 +267,14 @@ const build = {
             range.max = 100;
             range.value = 0;
             range.step = 1;
+
+        noUiSlider.create(range, {
+            start: [0],
+            range: {
+                'min': [0],
+                'max': [100]
+            }
+        });
 
         slider.appendChild(range);
 
