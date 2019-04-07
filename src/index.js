@@ -204,6 +204,14 @@ const App = function() {
             app.onLoad(lines, app.events.startApp);
         },
         startApp: function() {
+            //sound.play(); //play automatically
+            //console.log(lines)
+            Object.keys(lines).forEach(function(key, i) {
+                const value = lines[key];
+                if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
+                    value.sound.play()
+                }
+            });
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.remove('in-fade', 'out-fade');
                 document.querySelector('.navbar-right').classList.add('in-fade');
@@ -245,11 +253,11 @@ const build = {
     sound: function(scene, soundName, range) {
         const file = new File(scene, soundName);
         const sound = new Howl({
-            src: [file.soundLayersSrc+'.mp3'],
+            src: [file.soundLayersSrc+'.webm', file.soundLayersSrc+'.mp3'],
             volume: range.value / 100,
-            loop: true
+            loop: true,
+            html5: true
         });
-        sound.play(); //play automatically
         return sound;
     },
     
@@ -268,6 +276,8 @@ const build = {
             range.value = 0;
             range.step = 1;
 
+        slider.appendChild(range);
+
         noUiSlider.create(range, {
             start: [0],
             range: {
@@ -275,8 +285,6 @@ const build = {
                 'max': [100]
             }
         });
-
-        slider.appendChild(range);
 
         range.addEventListener("input", function(){
             layer.sound.volume(this.value / 100);
