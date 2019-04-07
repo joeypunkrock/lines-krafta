@@ -215,6 +215,7 @@ const App = function() {
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.remove('in-fade', 'out-fade');
                 document.querySelector('.navbar-right').classList.add('in-fade');
+                document.querySelector('.loader').style.display = 'none';
                 document.querySelector('.navbar-heading').textContent = 'Lines - Krafta';
                 document.querySelector('.scene').classList.add('in-fade');
                 app.container.classList.add('mixer--open', 'in-fade');

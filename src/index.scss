@@ -423,7 +423,7 @@ input[type=range][orient=vertical]
     font-size: 14px;
     @include transition(opacity 1.5s ease-in);
     @media screen and (max-width: $s-md-max) {
-        padding: 0 20px 250px 20px;
+        padding: 0 20px 330px 20px;
     }
 }
 
@@ -710,3 +710,25 @@ input[type=range][orient=vertical]
     }
 }
   
+.loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    padding-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: scale(4);
+    transform: scale(2);
+    opacity: 0.1;
+}
+
+svg path,
+svg rect {
+  fill: #ffffff;
+}

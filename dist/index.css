@@ -656,7 +656,7 @@ input[type=range][orient=vertical] {
   -o-transition: opacity 1.5s ease-in; }
   @media screen and (max-width: 768px) {
     .scene-loader {
-      padding: 0 20px 250px 20px; } }
+      padding: 0 20px 330px 20px; } }
 
 .scene {
   -webkit-transition: opacity 6s ease-in, transform 1s cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -901,6 +901,27 @@ input[type=range][orient=vertical] {
   100% {
     -webkit-transform: translate(-100px, 100px);
     transform: translate(-100px, 100px); } }
+
+.loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  padding-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: scale(4);
+  transform: scale(2);
+  opacity: 0.1; }
+
+svg path,
+svg rect {
+  fill: #ffffff; }
 
 /*! nouislider - 13.1.4 - 3/20/2019 */
 /* Functional styling;
