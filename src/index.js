@@ -252,12 +252,10 @@ const build = {
     
     sound: function(scene, soundName, range) {
         const file = new File(scene, soundName);
-        console.log(file.soundLayersSrc)
         const sound = new Howl({
-            src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
+            src: [file.soundLayersSrc+'.webm', file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
             volume: range.value / 100,
             loop: true,
-            html5: true
         });
         return sound;
     },
