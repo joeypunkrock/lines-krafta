@@ -541,6 +541,10 @@ button {
     .mixer__button {
       margin: 0.5rem 0; } }
 
+.slider,
+.noUi-target {
+  width: 100%; }
+
 .slider__title {
   color: white;
   text-transform: uppercase;

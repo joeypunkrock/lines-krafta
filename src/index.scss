@@ -286,6 +286,11 @@ button {
     }
 }
 
+.slider,
+.noUi-target {
+    width: 100%;
+}
+
 .slider__title {
     color: white;
     text-transform: uppercase;
