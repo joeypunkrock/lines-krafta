@@ -260,10 +260,6 @@ const build = {
     },
     
     slider: function(layer) {
-        console.log('---')
-        console.log('slider layer');
-        console.log(layer);
-        console.log('---')
         const slider = document.createElement('div');
         slider.classList.add('slider');
         slider.innerHTML = `<div class="slider__title">${layer.title}</div>`;
@@ -299,13 +295,6 @@ const build = {
 
 //build a layer with range image and sound
 const Layer = function(layer) {
-    console.log('---')
-    console.log('layer this');
-    console.log(this);
-    console.log('---')
-    console.log('layer layer');
-    console.log(layer);
-    console.log('---')
     this.id = layer.id;
     this.title =  layer.title;
     if(layer.slider != false) this.range = build.slider(this);
@@ -333,33 +322,33 @@ const Lines = function() {
         scene: sceneName
     });
 
-    // this.the_self_the_trees = new Layer({
-    //     id: 'the_self_the_trees',
-    //     title: 'Subjective Nature',
-    //     fileFormat: 'png',
-    //     scene: sceneName,
-    // });
+    this.the_self_the_trees = new Layer({
+        id: 'the_self_the_trees',
+        title: 'Subjective Nature',
+        fileFormat: 'png',
+        scene: sceneName,
+    });
 
-    // this.electricity = new Layer({
-    //     id: 'electricity',
-    //     title: 'Voltage',
-    //     fileFormat: 'png',
-    //     scene: sceneName
-    // });
+    this.electricity = new Layer({
+        id: 'electricity',
+        title: 'Voltage',
+        fileFormat: 'png',
+        scene: sceneName
+    });
 
-    // this.heartbeat = new Layer({
-    //     id: 'heartbeat',
-    //     title: 'Terra Pulse',
-    //     fileFormat: 'png',
-    //     scene: sceneName
-    // });
+    this.heartbeat = new Layer({
+        id: 'heartbeat',
+        title: 'Terra Pulse',
+        fileFormat: 'png',
+        scene: sceneName
+    });
 
-    // this.turn_on_the_lights = new Layer({
-    //     id: 'turn_on_the_lights',
-    //     title: 'Luminate',
-    //     fileFormat: 'png',
-    //     scene: sceneName
-    // });
+    this.turn_on_the_lights = new Layer({
+        id: 'turn_on_the_lights',
+        title: 'Luminate',
+        fileFormat: 'png',
+        scene: sceneName
+    });
 
 };
 
@@ -369,7 +358,7 @@ app.events.loadApp();
 
 window.onload = function() {
     app.nodes.randomBtn();
-    //app.eventListeners();
+    app.eventListeners();
 }
 
 document.querySelector('.show-popup').addEventListener('click', function() {
