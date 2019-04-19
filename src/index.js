@@ -2,8 +2,8 @@ import './index.scss';
 import {Howl, Howler} from 'howler';
 import TweenMax from 'gsap';
 import { strict } from 'assert';
-import noUiSlider from 'nouislider';
-import 'nouislider/distribute/nouislider.css';
+//import noUiSlider from 'nouislider';
+//import 'nouislider/distribute/nouislider.css';
 
 //application object 
 const App = function() {
@@ -276,13 +276,13 @@ const build = {
 
         slider.appendChild(range);
 
-        noUiSlider.create(range, {
-            start: [0],
-            range: {
-                'min': [0],
-                'max': [100]
-            }
-        });
+        // noUiSlider.create(range, {
+        //     start: [0],
+        //     range: {
+        //         'min': [0],
+        //         'max': [100]
+        //     }
+        // });
 
         range.addEventListener("input", function(){
             layer.sound.volume(this.value / 100);
