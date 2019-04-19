@@ -1,9 +1,8 @@
 import './index.scss';
 import {Howl, Howler} from 'howler';
-import TweenMax from 'gsap';
-import { strict } from 'assert';
-import noUiSlider from 'nouislider';
-import 'nouislider/distribute/nouislider.css';
+//import TweenMax from 'gsap';
+// import noUiSlider from 'nouislider';
+// import 'nouislider/distribute/nouislider.css';
 
 //application object 
 const App = function() {
@@ -61,20 +60,20 @@ const App = function() {
         pulseWrapper.appendChild(pulseDiv);
         lines.heartbeat.image.appendChild(pulseWrapper);
 
-        const pulse = TweenMax.from('.circle', 1.4, {
-            scale: 1,
-            transformOrigin: "center bottom",
-            ease: Power1.easeInOut,
-            onComplete: function() {
-                TweenMax.to('.pulse', 1, {
-                    scale: 2,
-                    transformOrigin: "center bottom",
-                    opacity: 0,
-                    repeat: -1,
-                    delay: 0
-                });
-            }
-        });
+        // const pulse = TweenMax.from('.circle', 1.4, {
+        //     scale: 1,
+        //     transformOrigin: "center bottom",
+        //     ease: Power1.easeInOut,
+        //     onComplete: function() {
+        //         TweenMax.to('.pulse', 1, {
+        //             scale: 2,
+        //             transformOrigin: "center bottom",
+        //             opacity: 0,
+        //             repeat: -1,
+        //             delay: 0
+        //         });
+        //     }
+        // });
 
         lines.heartbeat.range.addEventListener('input', function(){
             pulseWrapper.style.opacity = this.value / 100;
@@ -276,13 +275,13 @@ const build = {
 
         slider.appendChild(range);
 
-        noUiSlider.create(range, {
-            start: [0],
-            range: {
-                'min': [0],
-                'max': [100]
-            }
-        });
+        // noUiSlider.create(range, {
+        //     start: [0],
+        //     range: {
+        //         'min': [0],
+        //         'max': [100]
+        //     }
+        // });
 
         range.addEventListener("input", function(){
             layer.sound.volume(this.value / 100);
