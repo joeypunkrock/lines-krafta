@@ -110,7 +110,7 @@ const App = function() {
                           diff = getDiff(Math.round(currVal * 10) / 10, Math.round(setVal * 10) / 10),
                           rangeSpeed = 25;
 
-                    function updateProps(linkVal) {
+                    const updateProps = function(linkVal) {
                         value.sound.volume(linkVal);
 
                         if(value.id == 'heartbeat') {
@@ -225,7 +225,7 @@ const App = function() {
 const app = new App();
 
 //path references
-const File = function(scene, fileName) {
+const FileSystem = function(scene, fileName) {
     const sceneSrc = 'https://joeypunkrock.github.io/lines-krafta/src/scenes/'+scene+'/';
     this.imageLayersSrc = sceneSrc+'image_layers/'+fileName;
     this.soundLayersSrc = sceneSrc+'sound_layers/'+fileName;
@@ -235,7 +235,7 @@ const File = function(scene, fileName) {
 const build = {
 
     image: function(scene, imageName, fileFormat='png', range, slider) {
-        const file = new File(scene, imageName);
+        const file = new FileSystem(scene, imageName);
         const node = document.createElement("div");
         node.classList = 'image-full';
         node.id = imageName+'Image';
@@ -250,7 +250,7 @@ const build = {
     },
     
     sound: function(scene, soundName, range) {
-        const file = new File(scene, soundName);
+        const file = new FileSystem(scene, soundName);
         const sound = new Howl({
             src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
             volume: range.value / 100,
