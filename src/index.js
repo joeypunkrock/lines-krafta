@@ -291,7 +291,7 @@ const build = {
         return range;
     }
 
-};
+}
 
 //build a layer with range image and sound
 const Layer = function(layer) {

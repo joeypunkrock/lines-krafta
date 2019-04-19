@@ -5,7 +5,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackDashboard = require('webpack-dashboard/plugin');
 
 module.exports = (env, argv) => ({
-  devtool: argv.mode === 'development' ? 'cheap-eval-source-map' : false,
+  devtool: argv.mode === 'development' ? 'inline-source-map' : false,
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname + "/dist"),
