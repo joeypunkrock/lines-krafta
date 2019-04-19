@@ -44,9 +44,9 @@ const App = function() {
         });
 
         const noiseWrapper = document.createElement('div');
-        noiseWrapper.classList = 'noise-wrapper';
+        noiseWrapper.classList.add('noise-wrapper');
         const noiseDiv = document.createElement('div');
-        noiseDiv.classList = 'noise';
+        noiseDiv.classList.add('noise');
         noiseWrapper.appendChild(noiseDiv);
         lines.electricity.image.appendChild(noiseWrapper);
 
@@ -55,9 +55,9 @@ const App = function() {
         });
 
         const pulseWrapper = document.createElement('div');
-        pulseWrapper.classList = 'circle-wrapper circle';
+        pulseWrapper.classList.add('circle-wrapper circle');
         const pulseDiv = document.createElement('div');
-        pulseDiv.classList = 'circle pulse';
+        pulseDiv.classList.add('circle pulse');
         pulseWrapper.appendChild(pulseDiv);
         lines.heartbeat.image.appendChild(pulseWrapper);
 
@@ -81,7 +81,7 @@ const App = function() {
         });
         
         const flashImage = document.createElement('div');
-        flashImage.classList = 'flash-image';
+        flashImage.classList.add('flash-image');
         lines.turn_on_the_lights.image.appendChild(flashImage);
 
         setInterval(function() {
@@ -181,7 +181,7 @@ const App = function() {
     this.nodes = {
         randomBtn: function() {
             app.randomBtn = document.createElement('button');
-            app.randomBtn.classList = 'mixer__button';
+            app.randomBtn.classList.add('mixer__button');
             app.randomBtn.id = 'randomRangeAll';
             app.randomBtn.innerText = 'Dissarange';
         
@@ -197,7 +197,7 @@ const App = function() {
             }, 1000);
             document.querySelector('.navbar-heading').classList.add('in-fade');
             const vignette = document.createElement("div");
-            vignette.classList = 'vignette';
+            vignette.classList.add('vignette');
             app.scene.appendChild(vignette);
             app.onLoad(lines, app.events.startApp);
         },
@@ -237,7 +237,7 @@ const build = {
     image: function(scene, imageName, fileFormat='png', range, slider) {
         const file = new FileSystem(scene, imageName);
         const node = document.createElement("div");
-        node.classList = 'image-full';
+        node.classList.add('image-full');
         node.id = imageName+'Image';
         node.style.backgroundImage = `url("${file.imageLayersSrc}.${fileFormat}")`;
         if(slider != false) { 
@@ -265,13 +265,13 @@ const build = {
         console.log(layer);
         console.log('---')
         const slider = document.createElement('div');
-        slider.classList = 'slider';
+        slider.classList.add('slider');
         slider.innerHTML = `<div class="slider__title">${layer.title}</div>`;
         app.mixer.appendChild(slider);
 
         const range = document.createElement('input');
             range.id = layer.id+'Range';
-            range.classList = 'slider__range';
+            range.classList.add('slider__range');
             range.type = 'range';
             range.min = 0;
             range.max = 100;
