@@ -303,10 +303,10 @@ const Layer = function(layer) {
 }
 
 //scene object - lines
-var Lines = function() {
+const Lines = function() {
 
     const sceneName = 'lines';
-    
+
     this.background = new Layer({
         id: 'sky',
         fileFormat: 'jpg',
@@ -314,51 +314,59 @@ var Lines = function() {
         sound: false,
         scene: sceneName
     });
+    
+    // this.background = new Layer({
+    //     id: 'sky',
+    //     fileFormat: 'jpg',
+    //     slider: false,
+    //     sound: false,
+    //     scene: sceneName
+    // });
 
-    this.the_sky = new Layer({
-        id: 'the_sky',
-        title: 'Upper Atmosphere',
-        fileFormat: 'png',
-        scene: sceneName
-    });
+    // this.the_sky = new Layer({
+    //     id: 'the_sky',
+    //     title: 'Upper Atmosphere',
+    //     fileFormat: 'png',
+    //     scene: sceneName
+    // });
 
-    this.the_self_the_trees = new Layer({
-        id: 'the_self_the_trees',
-        title: 'Subjective Nature',
-        fileFormat: 'png',
-        scene: sceneName,
-    });
+    // this.the_self_the_trees = new Layer({
+    //     id: 'the_self_the_trees',
+    //     title: 'Subjective Nature',
+    //     fileFormat: 'png',
+    //     scene: sceneName,
+    // });
 
-    this.electricity = new Layer({
-        id: 'electricity',
-        title: 'Voltage',
-        fileFormat: 'png',
-        scene: sceneName
-    });
+    // this.electricity = new Layer({
+    //     id: 'electricity',
+    //     title: 'Voltage',
+    //     fileFormat: 'png',
+    //     scene: sceneName
+    // });
 
-    this.heartbeat = new Layer({
-        id: 'heartbeat',
-        title: 'Terra Pulse',
-        fileFormat: 'png',
-        scene: sceneName
-    });
+    // this.heartbeat = new Layer({
+    //     id: 'heartbeat',
+    //     title: 'Terra Pulse',
+    //     fileFormat: 'png',
+    //     scene: sceneName
+    // });
 
-    this.turn_on_the_lights = new Layer({
-        id: 'turn_on_the_lights',
-        title: 'Luminate',
-        fileFormat: 'png',
-        scene: sceneName
-    });
+    // this.turn_on_the_lights = new Layer({
+    //     id: 'turn_on_the_lights',
+    //     title: 'Luminate',
+    //     fileFormat: 'png',
+    //     scene: sceneName
+    // });
 
 };
 
 //build scene and load the application
 var lines = new Lines();
-app.events.loadApp(lines);
+app.events.loadApp();
 
 window.onload = function() {
     app.nodes.randomBtn();
-    app.eventListeners();
+    //app.eventListeners();
 }
 
 document.querySelector('.show-popup').addEventListener('click', function() {
