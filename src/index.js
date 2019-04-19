@@ -5,8 +5,6 @@ import { strict } from 'assert';
 import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.css';
 
-'use strict';
-
 //application object 
 const App = function() {
 

@@ -720,12 +720,16 @@ input[type=range][orient=vertical]
     height: 60px;
     width: 60px;
     text-align: center;
-    padding-top: 20px;
+    padding-bottom: 120px;
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: scale(4);
     transform: scale(2);
     opacity: 0.1;
+    @media screen and (max-width: $s-md-max) {
+        padding-top: 20px;
+        padding-bottom: 0px;
+    }
 }
 
 svg path,

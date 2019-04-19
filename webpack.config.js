@@ -1,32 +1,16 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const packageName = 'index';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WebpackDashboard = require('webpack-dashboard/plugin');
 
-module.exports = {
-  mode: "development",
-  entry: "./src/"+packageName+".js",
+module.exports = (env, argv) => ({
+  devtool: argv.mode === 'development' ? 'cheap-eval-source-map' : false,
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname + "/dist"),
-    filename: packageName+".js",
+    filename: "index.js",
     publicPath: "/dist"
-  },
-  module: {
-    rules: [
-      { 
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: "babel-loader"
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
-        ],
-      }]
   },
   optimization: {
     minimizer: [
@@ -36,11 +20,30 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: packageName+".css",
-      chunkFilename: "[id].css"
-    })
+      filename: '[name].css'
+    }),
+    new WebpackDashboard(),
   ],
+  module: {
+    rules: [
+      { 
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader'
+        ]
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ],
+      },
+    ]
+  },
   node: {
     fs: 'empty'
   }
-};
+});
