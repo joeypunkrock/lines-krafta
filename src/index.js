@@ -284,14 +284,14 @@ const build = {
         //     }
         // });
 
-        range.addEventListener("input", function(){
-            layer.sound.volume(this.value / 100);
-        });
+        // range.addEventListener("input", function(){
+        //     layer.sound.volume(this.value / 100);
+        // });
 
         return range;
     }
 
-}
+};
 
 //build a layer with range image and sound
 const Layer = function(layer) {
