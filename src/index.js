@@ -1,5 +1,5 @@
 import './index.scss';
-import {Howl, Howler} from 'howler';
+//import {Howl, Howler} from 'howler';
 //import TweenMax from 'gsap';
 // import noUiSlider from 'nouislider';
 // import 'nouislider/distribute/nouislider.css';
@@ -18,13 +18,14 @@ const App = function() {
     this.onLoad = function(scene, callback) {
         Object.keys(scene).forEach(function(key, i) {
             const value = scene[key];
-            if (scene.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                value.sound.on('load', function(){
-                    if(++i == Object.keys(scene).length) {
-                        callback();
-                    }
-                });
-            }
+            callback();
+            // if (scene.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
+            //     value.sound.on('load', function(){
+            //         if(++i == Object.keys(scene).length) {
+            //             callback();
+            //         }
+            //     });
+            // }
         });
     }
 
@@ -203,12 +204,12 @@ const App = function() {
         startApp: function() {
             //sound.play(); //play automatically
             //console.log(lines)
-            Object.keys(lines).forEach(function(key, i) {
-                const value = lines[key];
-                if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                    value.sound.play()
-                }
-            });
+            // Object.keys(lines).forEach(function(key, i) {
+            //     const value = lines[key];
+            //     if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
+            //         value.sound.play()
+            //     }
+            // });
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.remove('in-fade', 'out-fade');
                 document.querySelector('.navbar-right').classList.add('in-fade');
@@ -250,12 +251,12 @@ const build = {
     
     sound: function(scene, soundName, range) {
         const file = new FileSystem(scene, soundName);
-        const sound = new Howl({
-            src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
-            volume: range.value / 100,
-            loop: true,
-        });
-        return sound;
+        // const sound = new Howl({
+        //     src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
+        //     volume: range.value / 100,
+        //     loop: true,
+        // });
+        return false;
     },
     
     slider: function(layer) {
