@@ -55,9 +55,9 @@ const App = function() {
         });
 
         const pulseWrapper = document.createElement('div');
-        pulseWrapper.classList.add('circle-wrapper circle');
+        pulseWrapper.classList.add('circle-wrapper', 'circle');
         const pulseDiv = document.createElement('div');
-        pulseDiv.classList.add('circle pulse');
+        pulseDiv.classList.add('circle', 'pulse');
         pulseWrapper.appendChild(pulseDiv);
         lines.heartbeat.image.appendChild(pulseWrapper);
 
@@ -98,7 +98,8 @@ const App = function() {
         //end visual effects
 
         //randomise all ranges and slide range to new value
-        app.randomBtn.onclick = function() {
+        app.randomBtn.addEventListener('click', function() {
+            console.log('random')
             Object.keys(lines).forEach(function(key, i) {
                 const value = lines[key];
                 if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
@@ -149,7 +150,7 @@ const App = function() {
 
                 }
             });
-        }
+        });
 
         //mixer toggle events
         const openMixer = function() { 
@@ -162,8 +163,8 @@ const App = function() {
             app.openMixerBtn.classList.remove('open-mixer--hidden');
             app.container.classList.remove('mixer--open');
         }
-        app.openMixerBtn.onclick = function() { openMixer() }
-        app.closeMixerBtn.onclick = function() { closeMixer() }
+        app.openMixerBtn.addEventListener('click', function() { console.log('open mixer'); openMixer() });
+        app.closeMixerBtn.addEventListener('click', function() { console.log('close mixer'); closeMixer() });
         app.scene.onclick = function() { closeMixer() }
         const toggleMixer = function(e) {
             if(e.which==77) {
@@ -284,9 +285,9 @@ const build = {
             }
         });
 
-        // range.addEventListener("input", function(){
-        //     layer.sound.volume(this.value / 100);
-        // });
+        range.addEventListener("input", function(){
+            layer.sound.volume(this.value / 100);
+        });
 
         return range;
     }
