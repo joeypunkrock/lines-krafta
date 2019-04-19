@@ -35,8 +35,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@babel/runtime": "^7.2.0",
+    "gsap": "^2.1.1",
     "howler": "^2.1.0",
     "nouislider": "^13.1.4",
-    "gsap": "^2.1.1"
+    "remove-strict-webpack-plugin": "^0.1.2"
   }
 }
