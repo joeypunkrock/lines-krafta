@@ -3,7 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackDashboard = require('webpack-dashboard/plugin');
-const RemoveStrictPlugin = require( 'remove-strict-webpack-plugin' );
 
 module.exports = (env, argv) => ({
   devtool: argv.mode === 'development' ? 'cheap-eval-source-map' : false,
@@ -24,7 +23,6 @@ module.exports = (env, argv) => ({
       filename: '[name].css'
     }),
     new WebpackDashboard(),
-    new RemoveStrictPlugin()
   ],
   module: {
     rules: [
