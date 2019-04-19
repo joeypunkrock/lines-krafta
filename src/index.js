@@ -260,6 +260,10 @@ const build = {
     },
     
     slider: function(layer) {
+        console.log('---')
+        console.log('slider layer');
+        console.log(layer);
+        console.log('---')
         const slider = document.createElement('div');
         slider.classList = 'slider';
         slider.innerHTML = `<div class="slider__title">${layer.title}</div>`;
@@ -284,9 +288,9 @@ const build = {
             }
         });
 
-        range.addEventListener("input", function(){
-            layer.sound.volume(this.value / 100);
-        });
+        // range.addEventListener("input", function(){
+        //     layer.sound.volume(this.value / 100);
+        // });
 
         return range;
     }
@@ -295,6 +299,13 @@ const build = {
 
 //build a layer with range image and sound
 const Layer = function(layer) {
+    console.log('---')
+    console.log('layer this');
+    console.log(this);
+    console.log('---')
+    console.log('layer layer');
+    console.log(layer);
+    console.log('---')
     this.id = layer.id;
     this.title =  layer.title;
     if(layer.slider != false) this.range = build.slider(this);
@@ -306,7 +317,7 @@ const Layer = function(layer) {
 const Lines = function() {
 
     const sceneName = 'lines';
-
+    
     this.background = new Layer({
         id: 'sky',
         fileFormat: 'jpg',
@@ -314,21 +325,13 @@ const Lines = function() {
         sound: false,
         scene: sceneName
     });
-    
-    // this.background = new Layer({
-    //     id: 'sky',
-    //     fileFormat: 'jpg',
-    //     slider: false,
-    //     sound: false,
-    //     scene: sceneName
-    // });
 
-    // this.the_sky = new Layer({
-    //     id: 'the_sky',
-    //     title: 'Upper Atmosphere',
-    //     fileFormat: 'png',
-    //     scene: sceneName
-    // });
+    this.the_sky = new Layer({
+        id: 'the_sky',
+        title: 'Upper Atmosphere',
+        fileFormat: 'png',
+        scene: sceneName
+    });
 
     // this.the_self_the_trees = new Layer({
     //     id: 'the_self_the_trees',
