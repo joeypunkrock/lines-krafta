@@ -137,7 +137,7 @@ button {
 }
 
 #openMixer {
-    position: absolute;
+    position: fixed;
     top: 5px;
     left: 10px;
     z-index: 3;
@@ -160,6 +160,10 @@ button {
             transform: translateY(50px);
         }
     }
+}
+
+#mixer {
+    background-color: #000000;
 }
 
 #closeMixer {
