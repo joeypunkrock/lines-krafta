@@ -27,12 +27,8 @@ const App = function() {
         Object.keys(scene).forEach(function(key, i) {
             const value = scene[key];
             if (scene.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                console.log(++i)
-                console.log(Object.keys(scene).length)
                 value.sound.once('load', function() {
-                    console.log('load')
                     if(++i == Object.keys(scene).length) {
-                        console.log('callback');
                         callback();
                     }
                 });
@@ -201,7 +197,7 @@ const App = function() {
 
     this.events = {
         loadApp: function() {
-            document.querySelector('.scene-loader').innerHTML = 'I see destruction; a path gauged through wooded land to transport electric, static, down metal wires, to an un-framed city. <br> <span style="opacity:0.3">Please turn your volume up</span>';
+            document.querySelector('.scene-loader').innerHTML = 'I see destruction; a path gauged through wooded land to transport electric, static, down metal wires, to an un-framed city. <br> <span style="opacity:0.5">Please turn your volume up. <br> This site is best viewed on a modern web browser or phone.</span>';
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.add('in-fade');
             }, 1000);
@@ -213,11 +209,10 @@ const App = function() {
         },
         startApp: function() {
             //sound.play(); //play automatically
-            console.log(lines)
             Object.keys(lines).forEach(function(key, i) {
                 const value = lines[key];
                 if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                    value.sound.play()
+                    value.sound.play();
                 }
             });
 
