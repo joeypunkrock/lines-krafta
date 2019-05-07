@@ -5,6 +5,13 @@ import { strict } from 'assert';
 import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.css';
 
+function addListenerMulti(element, eventNames, listener) {
+    var events = eventNames.split(' ');
+    for (var i=0, iLen=events.length; i<iLen; i++) {
+      element.addEventListener(events[i], listener, false);
+    }
+  }
+
 //application object 
 const App = function() {
 
@@ -267,9 +274,7 @@ const build = {
         const sound = new Howl({
             src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
             volume: range.value / 100,
-            loop: true,
-            html5: true,
-            autoplay: true
+            loop: true
         });
         return sound;
     },
@@ -291,15 +296,15 @@ const build = {
 
         slider.appendChild(range);
 
-        // noUiSlider.create(range, {
-        //     start: [0],
-        //     range: {
-        //         'min': [0],
-        //         'max': [100]
-        //     }
-        // });
+        noUiSlider.create(range, {
+            start: [0],
+            range: {
+                'min': [0],
+                'max': [100]
+            }
+        });
 
-        range.addEventListener("input", function(){
+        addListenerMulti(range, 'change input', function(){
             layer.sound.volume(this.value / 100);
         });
 
