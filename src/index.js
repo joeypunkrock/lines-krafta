@@ -197,7 +197,7 @@ const App = function() {
 
     this.events = {
         loadApp: function() {
-            document.querySelector('.scene-loader').innerHTML = 'I see destruction; a path gauged through wooded land to transport electric, static, down metal wires, to an un-framed city. <br> <span style="opacity:0.5">Please turn your volume up. <br> This site is best viewed on a modern web browser or phone.</span>';
+            document.querySelector('.scene-loader').innerHTML = 'I see destruction; a path gauged through wooded land to transport electric, static, down metal wires, to an un-framed city. <br> <span style="opacity:0.5">Please turn your volume up.</span>';
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.add('in-fade');
             }, 1000);
