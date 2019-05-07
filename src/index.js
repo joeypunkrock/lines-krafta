@@ -221,15 +221,6 @@ const App = function() {
                 }
             });
 
-            document.querySelector('#forcePlaySound').addEventListener('click', function() {
-                Object.keys(lines).forEach(function(key, i) {
-                    const value = lines[key];
-                    if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                        value.sound.play()
-                    }
-                });
-            });
-
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.remove('in-fade', 'out-fade');
                 document.querySelector('.navbar-right').classList.add('in-fade');
