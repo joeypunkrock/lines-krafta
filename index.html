@@ -5,9 +5,6 @@
         <title>Lines - Krafta</title>
         <meta name="description" content="A visual and auditory interactive experience">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
 
         <style>
             .out-fade {
@@ -21,7 +18,7 @@
             }
         </style>
 
-        <link rel="stylesheet" href="./dist/index.css?v=0.11">
+        <link rel="stylesheet" href="./dist/index.css?v=0.13">
     
         <meta name="theme-color" content="#000000">
     </head>
@@ -38,17 +35,20 @@
                     <a href="" onclick="return false;" class="navbar-link show-popup"  aria-haspopup="true">About</a>
                 </div>
             </div>
+            <button id="forcePlaySound" style="float: right;margin-top: 4rem;">Play Sound</button>
             <div class="scene-loader out-fade"></div>
             <div class="scene out-fade"></div>
             <div class="flash"></div>
             <button id="openMixer" class="out-fade simple-button open-mixer--hidden" style="cursor:pointer">Open Mixer <span class="s-md">(m)</span></button>
-            <div id="mixer" class="mixer--open out-fade">
+            <div id="mixer" class="mixer--open">
                 <button id="closeMixer" class="simple-button" style="cursor:pointer"><span class="s-md">Close Mixer (m)</span> <span class="s-sm">X</span></button>
             </div>
             <div class="mask" role="dialog"></div>
             <div class="modal out-fade" role="alert">
                 <div class="modal-content">
                     <h2 class="modal-heading">About this Project</h2>
+                    <p>Lines is an interactive visual and auditory project which attempts to characterise different sounds of music to the world around us. By sliding each slider we can change the mix between sounds and visualise what layer of imagery is changed with it, allowing the oberserver to create something unique.</p>
+                    <p>Audio by Joe Yorke. Imagery by Joe Glover.</p>
                 </div>
                 <button class="close" role="button">X</button>
             </div>
@@ -64,11 +64,11 @@
                 from="0 25 25"
                 to="360 25 25"
                 dur="1.5s"
-                repeatCount="indefinite"/>
+                repeatCount="indefinite"></animateTransform>
               </path>
             </svg>
           </div>
 
-        <script src="./dist/index.js?v=0.20"></script>
+        <script src="./dist/index.js?v=0.21"></script>
     </body>
 </html>

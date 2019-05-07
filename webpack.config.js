@@ -20,7 +20,7 @@ module.exports = (env, argv) => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: 'index.css'
     }),
     new WebpackDashboard(),
   ],

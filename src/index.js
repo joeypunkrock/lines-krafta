@@ -20,8 +20,12 @@ const App = function() {
         Object.keys(scene).forEach(function(key, i) {
             const value = scene[key];
             if (scene.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
-                value.sound.on('load', function(){
+                console.log(++i)
+                console.log(Object.keys(scene).length)
+                value.sound.once('load', function() {
+                    console.log('load')
                     if(++i == Object.keys(scene).length) {
+                        console.log('callback');
                         callback();
                     }
                 });
@@ -99,7 +103,6 @@ const App = function() {
 
         //randomise all ranges and slide range to new value
         app.randomBtn.addEventListener('click', function() {
-            console.log('random')
             Object.keys(lines).forEach(function(key, i) {
                 const value = lines[key];
                 if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
@@ -163,9 +166,8 @@ const App = function() {
             app.openMixerBtn.classList.remove('open-mixer--hidden');
             app.container.classList.remove('mixer--open');
         }
-        app.openMixerBtn.addEventListener('click', function() { console.log('open mixer'); openMixer() });
-        app.closeMixerBtn.addEventListener('click', function() { console.log('close mixer'); closeMixer() });
-        app.scene.onclick = function() { closeMixer() }
+        app.openMixerBtn.addEventListener('click', function() { openMixer() });
+        app.closeMixerBtn.addEventListener('click', function() { closeMixer() });
         const toggleMixer = function(e) {
             if(e.which==77) {
                 if(app.mixer.classList.contains('mixer--open')) {
@@ -204,13 +206,23 @@ const App = function() {
         },
         startApp: function() {
             //sound.play(); //play automatically
-            //console.log(lines)
+            console.log(lines)
             Object.keys(lines).forEach(function(key, i) {
                 const value = lines[key];
                 if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
                     value.sound.play()
                 }
             });
+
+            document.querySelector('#forcePlaySound').addEventListener('click', function() {
+                Object.keys(lines).forEach(function(key, i) {
+                    const value = lines[key];
+                    if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
+                        value.sound.play()
+                    }
+                });
+            });
+
             setTimeout(function(){ 
                 document.querySelector('.scene-loader').classList.remove('in-fade', 'out-fade');
                 document.querySelector('.navbar-right').classList.add('in-fade');
@@ -256,6 +268,8 @@ const build = {
             src: [file.soundLayersSrc+'.ogg', file.soundLayersSrc+'.mp3'],
             volume: range.value / 100,
             loop: true,
+            html5: true,
+            autoplay: true
         });
         return sound;
     },
@@ -277,13 +291,13 @@ const build = {
 
         slider.appendChild(range);
 
-        noUiSlider.create(range, {
-            start: [0],
-            range: {
-                'min': [0],
-                'max': [100]
-            }
-        });
+        // noUiSlider.create(range, {
+        //     start: [0],
+        //     range: {
+        //         'min': [0],
+        //         'max': [100]
+        //     }
+        // });
 
         range.addEventListener("input", function(){
             layer.sound.volume(this.value / 100);
@@ -360,7 +374,7 @@ app.events.loadApp();
 window.onload = function() {
     app.nodes.randomBtn();
     app.eventListeners();
-}
+};
 
 document.querySelector('.show-popup').addEventListener('click', function() {
     document.querySelector('.mask').classList.add('active');

@@ -143,6 +143,7 @@ button {
     z-index: 3;
     @include transition(transform 250ms ease-in-out);
     &:hover {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         opacity: 1;
     }
     &.open-mixer--hidden {
@@ -208,6 +209,7 @@ button {
     transform: translateX(-$mixer-width - $mixer-shadow-width);
     @include transition(transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1));
     &:hover {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         opacity: 1;
     }
     @media screen and (max-width: $s-md-max) {
@@ -286,11 +288,6 @@ button {
     }
 }
 
-.slider,
-.noUi-target {
-    width: 100%;
-}
-
 .slider__title {
     color: white;
     text-transform: uppercase;
@@ -312,103 +309,107 @@ input[type=range][orient=vertical]
 }
 
 .slider__range { 
-    margin: auto;
-    -webkit-appearance: none;
-    position: relative;
-    overflow: hidden;
-    height: $rangeslider-height;
-    width: 100%;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-    border-radius: 5px; /* iOS */
-    color: $rangeslider-color;
-    border-color: $rangeslider-color;
-    opacity: 0.85;
-    box-shadow: 0px 0px 5px 1px transparent;
-    @include transition(all 0.3s ease);
-
-    @media screen and (max-width: $s-md-max) {
-        margin-bottom: 5px;
-    }
-
-    &::-webkit-slider-runnable-track {
-        background: $rangeslider-track-bg;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
-
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: $rangeslider-thumb-width; /* 1 */
-        height: $rangeslider-height;
-        background: $rangeslider-thumb-bg;
-        box-shadow: -100vw 0 0 100vw;
-        border: 0 solid #5d5855; /* 1 */
-        border-radius: $rangeslider-thumb-radius;
-    }
-
-    &::-moz-range-track {
-        height: $rangeslider-height;
-        background: #ddd;
-    }
-
-    &::-moz-range-thumb {
-        background: $rangeslider-thumb-bg;
-        height: $rangeslider-height;
-        width: $rangeslider-thumb-width;
-        border: 0 solid #5d5855;
-        border-radius: 0 !important;
-        box-shadow: -100vw 0 0 100vw;
-        box-sizing: border-box;
-        border-radius: $rangeslider-thumb-radius;
-    }
-
-    &::-ms-fill-lower { 
-        background: dodgerblue;
-    }
-
-    &::-ms-thumb { 
-        background: $rangeslider-thumb-bg;
-        border: 0 solid #5d5855;
-        height: $rangeslider-height;
-        width: $rangeslider-thumb-width;
-        box-sizing: border-box;
-        border-radius: $rangeslider-thumb-radius;
-    }
-
-    &::-ms-ticks-after { 
-        display: none; 
-    }
-
-    &::-ms-ticks-before { 
-        display: none; 
-    }
-
-    &::-ms-track { 
-        background: $rangeslider-track-bg;
-        color: transparent;
-        height: $rangeslider-height;
-        border: none;
-    }
-
-    &::-ms-tooltip { 
-        display: none;
-    }
-
-    &:hover {
-        opacity: 1;
-        &::-ms-thumb,
-        &::-moz-range-thumb,
-        &::-webkit-slider-thumb {
-            background: darken($rangeslider-thumb-bg, 25%);
-        }
-    }
-
-    &:focus {
-        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
-        outline: none;
-    }
+width: 100%;
 }
+
+// .slider__range { 
+//     margin: auto;
+//     -webkit-appearance: none;
+//     position: relative;
+//     overflow: hidden;
+//     height: $rangeslider-height;
+//     width: 100%;
+//     margin-bottom: 0.5rem;
+//     cursor: pointer;
+//     border-radius: 5px; /* iOS */
+//     color: $rangeslider-color;
+//     border-color: $rangeslider-color;
+//     opacity: 0.85;
+//     box-shadow: 0px 0px 5px 1px transparent;
+//     @include transition(all 0.3s ease);
+
+//     @media screen and (max-width: $s-md-max) {
+//         margin-bottom: 5px;
+//     }
+
+//     &::-webkit-slider-runnable-track {
+//         background: $rangeslider-track-bg;
+//         border-top-right-radius: 5px;
+//         border-bottom-right-radius: 5px;
+//     }
+
+//     &::-webkit-slider-thumb {
+//         -webkit-appearance: none;
+//         width: $rangeslider-thumb-width; /* 1 */
+//         height: $rangeslider-height;
+//         background: $rangeslider-thumb-bg;
+//         box-shadow: -100vw 0 0 100vw;
+//         border: 0 solid #5d5855; /* 1 */
+//         border-radius: $rangeslider-thumb-radius;
+//     }
+
+//     &::-moz-range-track {
+//         height: $rangeslider-height;
+//         background: #ddd;
+//     }
+
+//     &::-moz-range-thumb {
+//         background: $rangeslider-thumb-bg;
+//         height: $rangeslider-height;
+//         width: $rangeslider-thumb-width;
+//         border: 0 solid #5d5855;
+//         border-radius: 0 !important;
+//         box-shadow: -100vw 0 0 100vw;
+//         box-sizing: border-box;
+//         border-radius: $rangeslider-thumb-radius;
+//     }
+
+//     &::-ms-fill-lower { 
+//         background: dodgerblue;
+//     }
+
+//     &::-ms-thumb { 
+//         background: $rangeslider-thumb-bg;
+//         border: 0 solid #5d5855;
+//         height: $rangeslider-height;
+//         width: $rangeslider-thumb-width;
+//         box-sizing: border-box;
+//         border-radius: $rangeslider-thumb-radius;
+//     }
+
+//     &::-ms-ticks-after { 
+//         display: none; 
+//     }
+
+//     &::-ms-ticks-before { 
+//         display: none; 
+//     }
+
+//     &::-ms-track { 
+//         background: $rangeslider-track-bg;
+//         color: transparent;
+//         height: $rangeslider-height;
+//         border: none;
+//     }
+
+//     &::-ms-tooltip { 
+//         display: none;
+//     }
+
+//     &:hover {
+//         opacity: 1;
+//         &::-ms-thumb,
+//         &::-moz-range-thumb,
+//         &::-webkit-slider-thumb {
+//             background: darken($rangeslider-thumb-bg, 25%);
+//         }
+//     }
+
+//     &:focus {
+//         box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
+//         outline: none;
+//     }
+// }
 
 .scene-loader {
     position: absolute;
@@ -566,6 +567,11 @@ input[type=range][orient=vertical]
 .modal-heading {
     text-align: center;
     font-size: 18px;
+}
+
+.modal-content {
+    padding: 1rem 2rem;
+    line-height: 24px;
 }
 
 .flash-image {
@@ -730,6 +736,7 @@ input[type=range][orient=vertical]
     vertical-align: middle;
     -webkit-transform: scale(4);
     transform: scale(2);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
     opacity: 0.1;
     @media screen and (max-width: $s-md-max) {
         padding-top: 20px;
