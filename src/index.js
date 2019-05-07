@@ -46,11 +46,11 @@ const App = function() {
 
         lines.background.image.style.opacity = 1;
         
-        lines.the_self_the_trees.range.addEventListener('input', function(){
+        addListenerMulti(lines.the_self_the_trees.range, 'change input', function(){
             lines.the_self_the_trees.image.style.opacity = this.value / 100;
         });
 
-        lines.the_sky.range.addEventListener('input', function(){
+        addListenerMulti(lines.the_sky.range, 'change input', function(){
             lines.the_sky.image.style.opacity = this.value / 100;
         });
 
@@ -61,7 +61,7 @@ const App = function() {
         noiseWrapper.appendChild(noiseDiv);
         lines.electricity.image.appendChild(noiseWrapper);
 
-        lines.electricity.range.addEventListener('input', function(){
+        addListenerMulti(lines.electricity.range, 'change input', function(){
             lines.electricity.image.style.opacity = this.value / 100;
         });
 
@@ -87,7 +87,7 @@ const App = function() {
             }
         });
 
-        lines.heartbeat.range.addEventListener('input', function(){
+        addListenerMulti(lines.heartbeat.range, 'change input', function(){
             pulseWrapper.style.opacity = this.value / 100;
         });
         
@@ -102,7 +102,7 @@ const App = function() {
             }, 150);
         }, 1200);
 
-        lines.turn_on_the_lights.range.addEventListener('input', function(){
+        addListenerMulti(lines.turn_on_the_lights.range, 'change input', function(){
             lines.turn_on_the_lights.image.style.opacity = this.value / 100;
         });
 
@@ -301,7 +301,8 @@ const build = {
             range: {
                 'min': [0],
                 'max': [100]
-            }
+            },
+            cssPrefix: 'noUi-o-', // defaults to 'noUi-',
         });
 
         addListenerMulti(range, 'change input', function(){
