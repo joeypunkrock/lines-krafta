@@ -36,7 +36,7 @@
             }
         </style>
 
-        <link rel="stylesheet" href="./dist/index.css?v=0.2">
+        <link rel="stylesheet" href="./dist/index.css?v=0.21">
     
         <meta name="theme-color" content="#000000">
     </head>
@@ -57,11 +57,11 @@
             <div class="scene out-fade"></div>
             <div class="flash"></div>
             <button id="openMixer" class="out-fade simple-button open-mixer--hidden" style="cursor:pointer">Open Mixer <span class="s-md">(m)</span></button>
-            <div id="mixer" class="mixer--open">
-                <button id="closeMixer" class="simple-button" style="cursor:pointer"><span class="s-md">Close Mixer (m)</span> <span class="s-sm">X</span></button>
+            <div id="mixer" class="mixer--open out-fade">
+                <button id="closeMixer" class="simple-button" style="cursor:pointer"><span class="s-md">Close Mixer (m)</span> <span class="s-sm">Close Mixer X</span></button>
             </div>
             <div class="mask" role="dialog"></div>
-            <div class="modal" role="alert">
+            <div class="modal out-fade" role="alert">
                 <div class="modal-content">
                     <h2 class="modal-heading">About this Project</h2>
                     <p>Lines is an interactive visual and auditory project which attempts to characterise different sounds of music to the world around us. By sliding each slider we can change the mix between sounds and visualise what layer of imagery is changed with it, allowing the observer to create something unique.</p>
@@ -86,6 +86,6 @@
             </svg>
           </div>
 
-        <script src="./dist/index.js?v=0.29"></script>
+        <script src="./dist/index.js?v=0.3"></script>
     </body>
 </html>
