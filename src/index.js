@@ -118,7 +118,7 @@ const App = function() {
                           rangeSpeed = 25;
 
                     const updateProps = function(linkVal) {
-                        value.sound.volume(linkVal);
+                        value.sound.volume(linkVal / 100);
 
                         if(value.id == 'heartbeat') {
                             pulseWrapper.style.opacity = linkVal / 100;
@@ -224,7 +224,7 @@ const App = function() {
                 document.querySelector('.scene').classList.add('in-fade');
                 app.container.classList.add('mixer--open', 'in-fade');
             }, 4500);
-            
+
         }
     }
 
