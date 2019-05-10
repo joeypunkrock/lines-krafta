@@ -520,19 +520,22 @@ input[type=range][orient=vertical]
     bottom: 0;
     margin: auto;
     @media screen and (max-width: $s-md-max) {
-        bottom: auto;
+        bottom: 0;
+        top: 0;
         padding-bottom: 100%;
         width: 100%;
-        -webkit-transform: translateY(30%);
-        transform: translateY(30%);
+        // -webkit-transform: translateY(30%);
+        // transform: translateY(30%);
     }
 }
 
 .mixer--open {
     .scene {
         @media screen and (max-width: $s-md-max) {
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
+            // -webkit-transform: translateY(0);
+            // transform: translateY(0);
+            top: 30px;
+            bottom: auto;
         }
     }
 }
