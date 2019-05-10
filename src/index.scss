@@ -312,13 +312,10 @@ input[type=range][orient=vertical]
     padding: 0 5px;
 }
 
-.slider__range { 
-width: 100%;
-}
-
-
 .slider__range {
+    width: 100%;
     -webkit-appearance: none;
+    margin-bottom: 1rem;
     @media screen and (max-width: $s-md-max) {
         margin-bottom: 0.7rem;
     }
