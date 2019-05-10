@@ -104,6 +104,18 @@ const App = function() {
 
         //end visual effects
 
+        document.querySelector('#forcePlaySound').addEventListener('click', function() {
+            Object.keys(lines).forEach(function(key, i) {
+                const value = lines[key];
+                if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
+                    if(!value.sound.playing()) {
+                        value.sound.play();
+                    }
+                    return false;
+                }
+            });
+        });
+
         //randomise all ranges and slide range to new value
         app.randomBtn.addEventListener('click', function() {
             Object.keys(lines).forEach(function(key, i) {

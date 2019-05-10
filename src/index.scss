@@ -312,6 +312,13 @@ input[type=range][orient=vertical]
     padding: 0 5px;
 }
 
+.no-sound-button {
+    padding-left: 0;
+    font-size: 12px;
+    position: relative;
+    top: -5px;
+}
+
 .slider__range {
     width: 100%;
     -webkit-appearance: none;
