@@ -313,10 +313,12 @@ input[type=range][orient=vertical]
 }
 
 .no-sound-button {
-    padding-left: 0;
     font-size: 12px;
     position: relative;
     top: -5px;
+    @media screen and (max-width: $s-md-max) {
+        padding-left: 0;
+    }
 }
 
 .slider__range {
