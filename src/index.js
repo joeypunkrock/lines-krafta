@@ -208,7 +208,7 @@ const App = function() {
             app.onLoad(lines, app.events.startApp);
         },
         startApp: function() {
-            //sound.play(); //play automatically
+
             Object.keys(lines).forEach(function(key, i) {
                 const value = lines[key];
                 if (lines.hasOwnProperty(key) && value.id != undefined && value.sound != undefined) {
@@ -224,6 +224,7 @@ const App = function() {
                 document.querySelector('.scene').classList.add('in-fade');
                 app.container.classList.add('mixer--open', 'in-fade');
             }, 4500);
+            
         }
     }
 
@@ -262,6 +263,17 @@ const build = {
             volume: range.value / 100,
             loop: true
         });
+        sound._sounds[0]._node.addEventListener(
+            'ended',
+            () => {
+              if (sound.loop()) {
+                // Must seek to beginning to start audio over
+                sound.seek(0);
+                sound.play();
+              }
+            },
+            false
+          );
         return sound;
     },
     
