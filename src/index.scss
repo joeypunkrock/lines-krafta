@@ -647,6 +647,9 @@ input[type=range][orient=vertical]
     padding: 1rem 2rem;
     line-height: 24px;
     width: 100%;
+    a { 
+        color: white;
+    }
 }
 
 .flash-image {
