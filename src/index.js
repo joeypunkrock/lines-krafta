@@ -247,7 +247,7 @@ const app = new App();
 
 //path references
 const FileSystem = function(scene, fileName) {
-    const sceneSrc = 'http://www.kraftalines.com/src/scenes/'+scene+'/';
+    const sceneSrc = 'https://joeypunkrock.github.io/lines-krafta/src/scenes/'+scene+'/';
     this.imageLayersSrc = sceneSrc+'image_layers/'+fileName;
     this.soundLayersSrc = sceneSrc+'sound_layers/'+fileName;
 }
